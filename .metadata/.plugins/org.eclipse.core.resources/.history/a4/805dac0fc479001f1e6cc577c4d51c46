@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Details</h1>
+        
+        <div class="booking-details">
+            <h5>Booking ID: <span th:text="${booking.bookingId}"></span></h2>
+           
+            <p><strong>User:</strong> <span th:text="${booking.user.firstname}"></span></p>
+            <p><strong>Payment Type:</strong> <span th:text="${booking.paymentType}"></span></p>
+            <p><strong>Booking Date:</strong> <span th:text="${#dates.format(booking.bookingDate, 'yyyy-MM-dd')}"></span></p>
+            <p><strong>Check-in Date:</strong> <span th:text="${#dates.format(booking.checkinDate, 'yyyy-MM-dd')}"></span></p>
+            <p><strong>Check-out Date:</strong> <span th:text="${#dates.format(booking.checkoutDate, 'yyyy-MM-dd')}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${booking.status}"></span></p>
+            <p><strong>Total Price:</strong> <span th:text="${booking.totalPrice}"></span></p>
+        </div>
+        
+        <div class="buttons">
+            <a href="/web/view/booking" class="btn">Back to Bookings</a>
+        </div>
+    </div>
+</body>
+</html>

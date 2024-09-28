@@ -1,0 +1,54 @@
+package com.cp.project.demo.restcontroller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cp.project.demo.model.forBooking.Booking;
+import com.cp.project.demo.service.BookingService;
+
+@RestController
+@RequestMapping("/api")
+public class RestBookingController {
+	@Autowired
+	BookingService bookingService;
+	
+	@GetMapping("/booking")
+	public ResponseEntity<List<Booking>> getBooking() {
+		List<Booking> booking = bookingService.getBooking();
+		return new ResponseEntity<>(booking, HttpStatus.OK);
+	}
+	
+	@GetMapping("/booking/{id}")
+	public ResponseEntity<Booking> getBookingById(@PathVariable("id") Integer id) {
+		Booking booking = bookingService.getBookingById(id);
+		return new ResponseEntity<>(booking, HttpStatus.OK);
+	}
+	
+	@PostMapping("/booking/addnew")
+	public Booking addBooking(@RequestBody Booking booking) {
+		Booking addBooking = bookingService.createBooking(booking);
+		return addBooking;
+	}
+	
+	@PutMapping("/booking/edit/{id}")
+	public ResponseEntity<Booking> editBookingById(@PathVariable("id") Integer id, Booking booking) {
+		Booking updateBooking = bookingService.updateBooking(id, booking);
+		return new ResponseEntity<>(updateBooking, HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/booking/delete/{id}")
+	public void deleteBooking(@PathVariable("id") Integer id) {
+		bookingService.deleteBooking(id);
+	}
+}

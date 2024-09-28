@@ -1,0 +1,24 @@
+package com.cp.project.demo.model.forRoom;
+
+//ไฟล์ที่เอาไว้ใช้เลือกว่าจะสร้าง obj ไหน
+public class ConcreteRoomFactory implements RoomFactory {
+	
+	private Integer roomId;
+	private String roomType;
+	private String  roomSize;
+	private String roomStatus;
+	private RoomLocation roomLoc;
+	private String imgURL;
+	
+
+	
+	@Override
+    public Room createRoom(String type) {
+        if (type.equals("Single")) {
+            return new SingleRoom(roomId,roomType,roomSize,roomStatus,roomLoc,imgURL);
+        } else if (type.equals("Double")) {
+            return new DoubleRoom(roomId,roomType,roomSize,roomStatus,roomLoc,imgURL);
+        }
+        return null;
+    }
+}

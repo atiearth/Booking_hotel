@@ -1,0 +1,17 @@
+package com.cp.project.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cp.project.demo.model.forUser.User;
+import com.cp.project.demo.repository.UserRepository;
+
+@Service
+public class UserService {
+	@Autowired
+	UserRepository userRepo;
+	
+	
+}

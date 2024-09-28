@@ -1,0 +1,24 @@
+package com.cp.project.demo.model.forRoom;
+
+public class ConcreteRoomFactory implements RoomFactory {
+	@Override
+	public Room createRoom(Room room) {
+	    String type = room.getRoomType();
+	    if (type.equals("Single")) { 
+	        room.setRoomType("Single");
+	        room.setRoomStatus("Available");
+	        room.setRoomPrice(5000.00);
+	        room.setRoomSize("5x6");
+	        room.setImgURL(".../static/img.jpg");
+	    } else if (type.equals("Double")) {
+	        room.setRoomType("Double");
+	        room.setRoomStatus("Available");
+	        room.setRoomPrice(8000.00); // Example price for double room
+	        room.setRoomSize("6x8");
+	        room.setImgURL(".../static/img.jpg");
+	    }else {
+	    	return null;
+	    }
+	    return room;
+	}
+}

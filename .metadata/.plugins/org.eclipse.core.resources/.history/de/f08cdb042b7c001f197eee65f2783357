@@ -1,0 +1,30 @@
+package com.cp.project.demo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@Controller
+public class WebController {
+	
+	@GetMapping("/")
+	public String getHomePage() {
+		return "homepage";
+	}
+	
+	@GetMapping("/web/logout")
+	public String afterLogout() {
+		return "homepage";
+	}
+
+	@GetMapping("/homepage_login/{id}")
+	public String getHomePageLogin() {
+		return "homepage_login";
+	}
+
+	@GetMapping("/web/view/dashboard")
+	public String getViewDashboard() {
+		return "dashboard";
+	}	
+
+}

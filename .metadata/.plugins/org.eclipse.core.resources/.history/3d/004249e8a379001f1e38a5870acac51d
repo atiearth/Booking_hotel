@@ -1,0 +1,17 @@
+package com.cp.project.demo.model.forBooking;
+
+
+import java.util.Date;
+import java.util.List;
+
+import com.cp.project.demo.model.forRoom.Room;
+import com.cp.project.demo.model.forUser.User;
+
+public interface BookingBuilder {
+    BookingBuilder setRoom(Room room);
+    BookingBuilder setUser(User user);
+    BookingBuilder setPaymentType(String paymentType);
+    BookingBuilder setCheckinDate(Date checkinDate);
+    BookingBuilder setCheckoutDate(Date checkoutDate);
+    Booking build();
+}

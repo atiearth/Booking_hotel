@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดการจอง</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- เชื่อมโยงกับ CSS ของคุณ -->
+</head>
+<body>
+    <div class="container">
+        <h1>รายละเอียดการจอง</h1>
+        
+        <div class="booking-details">
+            <!-- ตรวจสอบว่ามีข้อมูลการจองหรือไม่ -->
+            <div th:if="${booking != null}">
+                <p><strong>หมายเลขการจอง:</strong> <span th:text="${booking.id}"></span></p>
+                <p><strong>ชื่อผู้จอง:</strong> <span th:text="${booking.customerName}"></span></p>
+                <p><strong>วันที่จอง:</strong> <span th:text="${booking.bookingDate}"></span></p>
+                <p><strong>สถานะการจอง:</strong> <span th:text="${booking.status}"></span></p>
+                <p><strong>หมายเหตุ:</strong> <span th:text="${booking.notes}"></span></p>
+            </div>
+            <div th:if="${booking == null}">
+                <p>ไม่พบข้อมูลการจอง</p>
+            </div>
+        </div>
+        
+        <a href="/web/bookings" class="btn">กลับไปที่รายการการจอง</a>
+    </div>
+</body>
+</html>

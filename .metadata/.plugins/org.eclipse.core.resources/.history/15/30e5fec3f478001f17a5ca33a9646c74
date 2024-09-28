@@ -1,0 +1,121 @@
+package com.cp.project.demo.model.forUser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.cp.project.demo.model.forBooking.Booking;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "user")
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer User_Id;
+	@Column(name = "firstname")
+	private String User_FirstName;
+	
+	@Column(name = "user_lastname")
+	private String User_LastName;
+	
+	@Column(name = "user_email")
+	private String User_Email;
+	
+	@Column(name = "password")
+	private String User_Password;
+	
+	
+	@Column(name = "user_role")
+	private String User_Role;
+	
+	@Column(name = "phone_number")
+	private String Phone_Number;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Booking> booking = new ArrayList<>();
+	
+	public User(Integer user_Id, String user_FirstName, String user_LastName, String user_Email, String user_Password,
+			String user_Confirm_password, String user_Role, String phone_Number) {
+		super();
+		User_Id = user_Id;
+		User_FirstName = user_FirstName;
+		User_LastName = user_LastName;
+		User_Email = user_Email;
+
+		User_Role = user_Role;
+		Phone_Number = phone_Number;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Integer getUser_Id() {
+		return User_Id;
+	}
+
+	public void setUser_Id(Integer user_Id) {
+		User_Id = user_Id;
+	}
+
+	public String getUser_FirstName() {
+		return User_FirstName;
+	}
+
+	public void setUser_FirstName(String user_FirstName) {
+		User_FirstName = user_FirstName;
+	}
+
+	public String getUser_LastName() {
+		return User_LastName;
+	}
+
+	public void setUser_LastName(String user_LastName) {
+		User_LastName = user_LastName;
+	}
+
+	public String getUser_Email() {
+		return User_Email;
+	}
+
+	public void setUser_Email(String user_Email) {
+		User_Email = user_Email;
+	}
+
+	public String getUser_Password() {
+		return User_Password;
+	}
+
+	public void setUser_Password(String user_Password) {
+		User_Password = user_Password;
+	}
+
+	
+
+	public String getUser_Role() {
+		return User_Role;
+	}
+
+	public void setUser_Role(String user_Role) {
+		User_Role = user_Role;
+	}
+
+	public String getPhone_Number() {
+		return Phone_Number;
+	}
+
+	public void setPhone_Number(String phone_Number) {
+		Phone_Number = phone_Number;
+	}
+	
+	
+}

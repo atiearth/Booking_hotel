@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+</head>
+<body>
+    <h1>Create Booking</h1>
+    <form id="bookingForm">
+        <!-- ฟอร์มนี้ใช้เพื่อรับข้อมูลผู้ใช้ -->
+        <label for="roomId">Room ID:</label>
+        <input type="number" id="roomId" name="roomId" value="1"><br>
+
+        <label for="userId">User ID:</label>
+        <input type="number" id="userId" name="userId" value="2"><br>
+
+        <label for="paymentType">Payment Type:</label>
+        <input type="text" id="paymentType" name="paymentType" value="credit"><br>
+
+        <label for="bookingDate">Booking Date:</label>
+        <input type="date" id="bookingDate" name="bookingDate" value="2024-09-24"><br>
+
+        <label for="checkinDate">Checkin Date:</label>
+        <input type="date" id="checkinDate" name="checkinDate" value="2024-09-25"><br>
+
+        <label for="checkoutDate">Checkout Date:</label>
+        <input type="date" id="checkoutDate" name="checkoutDate" value="2024-09-30"><br>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="Confirmed"><br>
+
+        <label for="totalPrice">Total Price:</label>
+        <input type="number" id="totalPrice" name="totalPrice" value="5000"><br>
+
+        <button type="button" onclick="createBooking()">Create Booking</button>
+    </form>
+
+    <script>
+        function createBooking() {
+            $.ajax({
+                url: "/web/booking/create",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    room: { roomId: document.getElementById("roomId").value },
+                    user: { userId: document.getElementById("userId").value },
+                    paymentType: document.getElementById("paymentType").value,
+                    bookingDate: document.getElementById("bookingDate").value,
+                    checkinDate: document.getElementById("checkinDate").value,
+                    checkoutDate: document.getElementById("checkoutDate").value,
+                    status: document.getElementById("status").value,
+                    totalPrice: document.getElementById("totalPrice").value
+                }),
+                success: function(response) {
+                    console.log("Booking created successfully:", response);
+                    alert("Booking created successfully!");
+                },
+                error: function(error) {
+                    console.log("Error:", error);
+                    alert("Error occurred while creating booking.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

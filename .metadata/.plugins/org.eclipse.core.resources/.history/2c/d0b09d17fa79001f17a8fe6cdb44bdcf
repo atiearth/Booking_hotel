@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymealeaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check to confirm</title>
+
+    <link rel="icon" type="image/x-icon" href="/image/logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="button text-start pt-4 px-4">
+        <a href="/web/view/user/booking" class="btn btn-dark">Back</a>
+    </div>
+    <div class="container-confirm pt-5">
+        <h1>Check information to confirm</h1>
+        <div class="card">
+<!--             <h4>Name : <span th:text="${booking.user.userFirstName} + ' ' + ${booking.user.userLastName}"></span></h4>
+ -->            <!-- <h4>Email : <span th:text="${booking.user.email}"></span></h4>
+            <h4>Telephone number : <span th:text="${booking.user.phoneNumber}"></span></h4>
+            <h4>Booking Date : <span th:text="${#dates.format(booking.bookingDate, 'yyyy-MM-dd')}"></span></h4>
+            <h4>Check-in Date : <span th:text="${#dates.format(booking.checkinDate, 'yyyy-MM-dd')}"></span></h4>
+            <h4>Check-out Date : <span th:text="${#dates.format(booking.checkoutDate, 'yyyy-MM-dd')}"></span></h4>
+            <h4>Room Type : <span th:text="${booking.room.roomType}"></span></h4>
+            <h4>Payment type : <span th:text="${booking.paymentType}"></span></h4>
+            <h4>Total cost : <span th:text="${booking.totalPrice}"></span></h4> -->
+        </div>
+        <div class="button text-center">
+            <p>*Verify the accuracy before pressing confirm</p>
+            <form action="/web/confirm" method="post">
+                <button type="submit" class="btn btn-primary w-50">Confirm</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-box mt-5">
+        <div class="footer bg-light">
+            <p class="mb-1">© 2017–2024 The Metropolis</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end footer -->
+
+</body>
+
+<script src="/motion/motion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>

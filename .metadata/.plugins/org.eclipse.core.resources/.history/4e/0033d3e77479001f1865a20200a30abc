@@ -1,0 +1,87 @@
+package com.cp.project.demo.model.forRoom;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "room_location")
+public class RoomLocation {
+
+	@Id
+	@Column(name = "room_id")
+	private Integer id;
+	
+	private int floor;
+	private String builder;
+	private int roomNumber;
+	
+	@OneToOne
+	@MapsId
+	@JoinColumn(name = "room_id")
+	private Room room;
+
+	public RoomLocation() {
+		super();
+	}
+	public RoomLocation(Integer id, int floor, String builder, Room room,int roomNumber) {
+		super();
+		this.id = id;
+		this.floor = floor;
+		this.builder = builder;
+		this.room = room;
+		this.roomNumber = roomNumber;
+	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public int getFloor() {
+		return floor;
+	}
+
+	public void setFloor(int floor) {
+		this.floor = floor;
+	}
+
+	public String getBuilder() {
+		return builder;
+	}
+
+	public void setBuilder(String builder) {
+		this.builder = builder;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+	
+	public int getRoomNumber() {
+		return roomNumber;
+	}
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+	
+	
+	
+	
+	
+	
+	
+}

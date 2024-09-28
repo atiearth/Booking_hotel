@@ -1,0 +1,5 @@
+package com.cp.project.demo.configuration;
+
+public class WebConfig {
+
+}

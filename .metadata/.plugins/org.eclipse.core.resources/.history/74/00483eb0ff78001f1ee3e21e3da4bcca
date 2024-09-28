@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+	    h2 {
+	       	text-align: center;
+	    }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alert {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #4CAF50;
+            border: 1px solid #45a049;
+        }
+
+        .alert-error {
+            background-color: #f44336;
+            border: 1px solid #e41b0e;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Register Form</h2>
+    <div id="alert-box" class="alert"></div>
+    
+    <form action="/web/createuser" method="POST">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+
+        <label for="telephone">Telephone:</label>
+        <input type="tel" id="telephone" name="telephone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="confirm_password">Confirm Password: </label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const alertBox = document.getElementById('alert-box');
+            
+            if (params.has('success')) {
+                alertBox.textContent = "Registration successful!";
+                alertBox.classList.add('alert-success');
+                alertBox.style.display = "block";
+            } else if (params.has('error')) {
+                alertBox.textContent = "Error: " + params.get('error');
+                alertBox.classList.add('alert-error');
+                alertBox.style.display = "block";
+            }
+        };
+    </script>
+
+</body>
+</html>

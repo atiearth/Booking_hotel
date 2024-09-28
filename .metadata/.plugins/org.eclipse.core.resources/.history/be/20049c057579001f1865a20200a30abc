@@ -1,0 +1,8 @@
+package com.cp.project.demo.model.forRoom;
+
+public class DoubleRoom extends Room {
+
+	public DoubleRoom(Integer roomId,String roomType,String roomSize,String roomStatus,RoomLocation roomLoc,String imgURL) {
+		super(roomId,roomType,4000.0,roomSize,roomStatus,roomLoc,imgURL);	
+	}
+}

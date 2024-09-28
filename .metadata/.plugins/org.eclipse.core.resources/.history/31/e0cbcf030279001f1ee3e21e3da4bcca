@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .alert {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            display: none; /* ซ่อนเป็นค่าเริ่มต้น */
+        }
+        .alert-success {
+            background-color: #4CAF50;
+            border: 1px solid #45a049;
+        }
+        .alert-error {
+            background-color: #f44336;
+            border: 1px solid #e41b0e;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Login</h2>
+    <div id="alert-box" class="alert"></div>
+    <form action="/web/loginuser" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p style="text-align: center;">Don't have an account? <a href="/web/register">Register here</a></p>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const alertBox = document.getElementById('alert-box');
+            
+            if (params.has('success')) {
+                alertBox.textContent = "Login successful!";
+                alertBox.classList.add('alert-success');
+                alertBox.style.display = "block";
+            } else if (params.has('error')) {
+                alertBox.textContent = "Error: " + params.get('error');
+                alertBox.classList.add('alert-error');
+                alertBox.style.display = "block";
+            }
+        };
+    </script>
+</body>
+</html>

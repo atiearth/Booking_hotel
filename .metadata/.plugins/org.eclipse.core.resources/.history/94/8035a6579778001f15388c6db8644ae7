@@ -1,0 +1,5 @@
+package com.cp.project.demo.repository;
+
+public interface UserRepository {
+
+}

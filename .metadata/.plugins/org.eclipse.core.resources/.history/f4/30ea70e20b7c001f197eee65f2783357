@@ -1,0 +1,7 @@
+package com.cp.project.demo.service;
+
+public class RoomNotAvailableException {
+	public RoomNotAvailableException(String message) {
+        super(message);
+    }
+}
