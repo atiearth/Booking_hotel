@@ -1,6 +1,0 @@
-package com.cp.project.demo.repository;
-
-@Re
-public interface UserRepository {
-
-}

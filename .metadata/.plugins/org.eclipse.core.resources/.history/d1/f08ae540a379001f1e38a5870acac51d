@@ -1,7 +1,0 @@
-package com.cp.project.demo.model.forBooking;
-
-public interface BookingSubject {
-    void addObserver(BookingObserver observer);
-    void removeObserver(BookingObserver observer);
-    void notifyObservers();
-}

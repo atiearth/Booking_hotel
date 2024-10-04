@@ -1,7 +1,0 @@
-package com.cp.project.demo.service;
-
-@Service
-public class RoomService {
-	@Autowired
-	RoomRepository roomRepository;
-}

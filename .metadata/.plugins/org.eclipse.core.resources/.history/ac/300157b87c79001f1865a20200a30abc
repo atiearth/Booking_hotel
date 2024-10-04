@@ -1,8 +1,0 @@
-package com.cp.project.demo.model.forRoom;
-
-public class DoubleRoom extends Room {
-
-	public DoubleRoom() {
-		super();
-	}
-}

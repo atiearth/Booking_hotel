@@ -1,9 +1,0 @@
-package com.cp.project.demo.model.forRoom;
-
-public class SingleRoom extends Room {
-
-	
-	public SingleRoom(Integer roomId,String roomType,String roomSize,String roomStatus,RoomLocation roomLoc,String imgURL) {
-		super(roomId,roomType,3000.0,roomSize,roomStatus,roomLoc,imgURL);	
-	}
-}

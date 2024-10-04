@@ -1,9 +1,0 @@
-package com.cp.project.demo.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.cp.project.demo.model.forRoom.Room;
-
-public interface RoomRepository extends JpaRepository<Room, Inter> {
-    boolean existsByRoomNumber(String roomNumber); // เช็คว่าเลขห้องมีอยู่ในฐานข้อมูล
-}

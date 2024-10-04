@@ -1,8 +1,0 @@
-.custom-alert {
-    position: fixed;
-    top: 20px; /* ตั้งค่าระยะห่างจากด้านบน */
-    left: 50%; /* ตั้งให้ชิดกับกึ่งกลางแนวนอน */
-    transform: translateX(-50%); /* ปรับตำแหน่งให้ตรงกลาง */
-    z-index: 1050;
-    width: 300px;
-}

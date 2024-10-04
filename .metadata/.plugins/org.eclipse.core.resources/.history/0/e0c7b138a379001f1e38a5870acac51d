@@ -1,8 +1,0 @@
-package com.cp.project.demo.model.forBooking;
-
-public class EmailNotificationObserver implements BookingObserver {
-    @Override
-    public void update(Booking booking) {
-        System.out.println("Booking status changed to: " + booking.getStatus() + ". Sending email notification...");
-    }
-}
